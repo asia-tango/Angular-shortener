@@ -12,6 +12,6 @@ export interface Shortening {
   share_link: string;
   full_share_link: string;
   original_link: string;
-  name: string;
-  id?: number;
+  titleName?: string;
+  id?: string;
 }

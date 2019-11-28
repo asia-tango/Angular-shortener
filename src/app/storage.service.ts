@@ -33,4 +33,9 @@ export class StorageService {
   updateStorage(shortenings: Shortening[]): void {
     localStorage.setItem('shortenings', JSON.stringify(shortenings));
   }
+
+  deleteLiItem(deleteId: string): void {
+    this.shortenings = this.shortenings.filter(item => item.id !== deleteId);
+    this.updateStorage(this.shortenings);
+  }
 }

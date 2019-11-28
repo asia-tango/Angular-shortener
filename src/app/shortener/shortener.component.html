@@ -1,17 +1,21 @@
 <h1>Shortener</h1>
 
 <div>
-  <input type="text" placeholder="Name" [(ngModel)]='name'>
-  <input type="text" placeholder="URL" [(ngModel)]='url'>
+    <input type="text" placeholder="Name" [(ngModel)]='name'>
+    <input type="text" placeholder="URL" [(ngModel)]='url'>
+  
   <button (click)='onSubmit()'>Shorten</button>
 </div>
 
 <ul>
-  <li *ngFor="let short of shortenings; let i = index" ng-attr-id="{{ 'object-' + myScopeObject.index }}" class="card">
-    <h3>{{ short.name }}</h3>
-    <button>View details</button>
-    <button>Delete</button>
-    <a [href]="short.full_short_link" target="_blank">{{short.full_short_link}}</a>
-  </li>
+  <li *ngFor="let short of shortenings; let i = index" class="card">
+    <h3>title:  {{ short.titleName  }}</h3>
+    <div>
+        <button>View details</button>  
+        <button (click) ="onDelete(short.id)">Delete</button>
+    </div>
+     
+    <!-- <a [href]="short.full_short_link" target="_blank">{{ short.full_short_link }}</a> -->
+  </li> 
 </ul>
 

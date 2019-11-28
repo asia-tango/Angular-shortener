@@ -9,9 +9,8 @@ import { Shortening } from '../models/shortening-response.interface';
   styleUrls: ['./shortener.component.css']
 })
 export class ShortenerComponent implements OnInit {
-  url = '';
-  name = '';
-  id = '';
+  url = "";
+  name = "";
   shortenings: Shortening[] = [];
 
   constructor(
@@ -23,22 +22,37 @@ export class ShortenerComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.updateShortenings();
+     this.updateShortenings();
   }
 
   onSubmit() {
     if (!this.url) {
       return;
     }
-
+    // if (!this.name) {
+    //   return;
+    // }
+    const ONE_HUNDRED = 100;
+    let tempName = this.name;
     this.shortAPI.shortenUrl(this.url).subscribe((res) => {
+      res.result.titleName = tempName;
+      res.result.id = (Math.floor(Math.random() * (ONE_HUNDRED + 1))).toString();
       this.storageService.saveShortening(res.result);
-      res.result.name = this.name;
       this.updateShortenings();
+      console.log(res.result.titleName);
+      console.log(res.result);
     });
   }
 
   updateShortenings() {
-    this.shortenings = this.storageService.getShortenings();
+    this.shortenings = this.storageService.getShortenings(); 
+  }
+
+  onDelete(titleId) {
+    if (confirm("Are you sure?")) {
+      this.storageService.deleteLiItem(titleId);
+      this.updateShortenings();
+    }
   }
 }
+  
