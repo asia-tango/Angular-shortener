@@ -38,4 +38,14 @@ export class StorageService {
     this.shortenings = this.shortenings.filter(item => item.id !== deleteId);
     this.updateStorage(this.shortenings);
   }
+
+  getAllShortening(id: string): Shortening {
+    return this.getShortenings().filter(item => item.id === id)[id];
+  }
+
+  saveShortenings(shortening: Shortening): void {
+    this.shortenings.push(shortening);
+    this.updateStorage(this.shortenings);
+  }
+
 }

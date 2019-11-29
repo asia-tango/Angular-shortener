@@ -8,11 +8,11 @@
 </div>
 
 <ul>
-  <li *ngFor="let short of shortenings; let i = index" class="card">
-    <h3>title:  {{ short.titleName  }}</h3>
+  <li *ngFor="let short of shortenings" class="card">
+    <h3>{{ short.titleName  }}</h3>
     <div>
-        <button>View details</button>  
-        <button (click) ="onDelete(short.id)">Delete</button>
+        <button routerLink="/shortener/:{{ short.id }}" class="btn-item">View details</button>  
+        <button (click) ="onDelete(short.id)" class="btn-item">Delete</button>
     </div>
      
     <!-- <a [href]="short.full_short_link" target="_blank">{{ short.full_short_link }}</a> -->

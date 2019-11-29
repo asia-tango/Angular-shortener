@@ -29,13 +29,18 @@ export class ShortenerComponent implements OnInit {
     if (!this.url) {
       return;
     }
-    // if (!this.name) {
-    //   return;
-    // }
+
     const ONE_HUNDRED = 100;
+    const empty = '*** Empty title ***';
     let tempName = this.name;
     this.shortAPI.shortenUrl(this.url).subscribe((res) => {
-      res.result.titleName = tempName;
+      
+      if(res.result.titleName === undefined) {
+        res.result.titleName = empty;
+      } else {
+        res.result.titleName = tempName;
+      }
+     
       res.result.id = (Math.floor(Math.random() * (ONE_HUNDRED + 1))).toString();
       this.storageService.saveShortening(res.result);
       this.updateShortenings();

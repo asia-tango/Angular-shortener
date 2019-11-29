@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ShortenerComponent } from './shortener/shortener.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     WelcomeComponent,
-    ShortenerComponent
+    ShortenerComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
