@@ -2,10 +2,13 @@
       <div class="details-wrap">
         <div class="title-box">
           <h1>{{ shortening.titleName }}</h1>
+          <!-- <h1>Title</h1> -->
           <button (click)="onDelete(this.id)">Delete</button>
         </div>
         <div class="orig-link">
-          Original link: <a href="{{ this.shortening.original_link }}">
+          <!-- Original link: <a href="{{ this.shortening.original_link }}">
+          {{ this.shortening.original_link }}</a> -->
+          Original link: <a href="this.shortening.original_link ">
           {{ this.shortening.original_link }}</a>
         </div>
         <div class="share-link">

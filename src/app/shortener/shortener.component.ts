@@ -34,7 +34,7 @@ export class ShortenerComponent implements OnInit {
     const empty = '*** Empty title ***';
     let tempName = this.name;
     this.shortAPI.shortenUrl(this.url).subscribe((res) => {
-      
+      res.result.titleName = this.name;
       if(res.result.titleName === undefined) {
         res.result.titleName = empty;
       } else {

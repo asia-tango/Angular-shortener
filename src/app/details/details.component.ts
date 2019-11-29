@@ -1,12 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Shortening } from "./../models/shortening-response.interface";
 import { StorageService } from "./../storage.service";
-import {
-  Router,
-  ActivatedRoute,
-  Params,
-  NavigationExtras
-} from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-details',
@@ -17,6 +12,7 @@ export class DetailsComponent implements OnInit {
 
   id: string;
   shortening: Shortening;
+  titleName: string;
 
   constructor(
     private router: Router,
